@@ -1,0 +1,62 @@
+public class Main {
+    public static class CreditCard {
+
+       private double balance;
+       public int number;
+
+        public  CreditCard(int number, double initialBalance) {
+            this.number = number;
+            if (initialBalance >= 0) {
+                this.balance = initialBalance;
+            } else {
+                this.balance = 0;
+                System.out.println("Баланс на карте не может быть отрицательным.");
+            }
+        }
+        //начислять сумму на кредитную карточку
+
+        public void deposit(double amount) {
+            if (amount >= 0) {
+                balance += amount;
+                System.out.printf("Счет пополнен на %.2f руб. Текущий баланс: %.2f руб.\n", amount , balance);
+            } else {
+                System.out.println("Сумма поплнения должна быть положительная.");
+            }
+        }
+
+        //позволяет снимать с карточки некоторую сумму
+        public boolean withdraw(double amount) {
+            if (amount <= 0) {
+                System.out.println("Суммa на карте должна быть положительной.");
+                return false;
+            }
+            if (amount > balance) {
+                System.out.println("Недостаточно средств на карте.");
+                return false;
+            }
+            balance -= amount;
+            System.out.printf("С вашей карты снято %.2f руб. Остаток: %.2f руб.\n",amount , balance);
+            return true;
+        }
+            public  void printInfo() {
+                System.out.printf("Номер карты: %d, Баланс: %.2f руб.\n", number, balance);
+        }
+    }
+
+
+    }
+/////////////////////////////////////////////////////////////////////////////////////
+
+public class CreditCardPractic {
+    public static void main(String[] args) {
+        Main.CreditCard card1 = new Main.CreditCard(456734261, 1000.0);
+        Main.CreditCard card2 = new Main.CreditCard(10004261, 2000.0);
+        Main.CreditCard card3 = new Main.CreditCard(779734261, 8000.0);
+        card1.deposit(600.0);
+        card2.deposit(453.0);
+        card3.withdraw(380.0);
+        card1.printInfo();
+        card2.printInfo();
+        card3.printInfo();
+    }
+}
