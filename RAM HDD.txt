@@ -1,0 +1,95 @@
+1)
+package Komp;
+
+public class Main {
+    public static class Comp {
+        private double price;
+        private String model;
+        private RAM ram;
+        private HDD hdd;
+
+        public  Comp (double price, String model) {
+            this.price = price;
+            this.model = model;
+            this.ram = new RAM();
+            this.hdd = new HDD();
+            System.out.println("Информация: " + "Цена: " + " " + price +  " " + "Модель: "  + model);
+
+        }
+
+        public   Comp (double price, String model, RAM ram, HDD hdd) {
+            this.price=price;
+            this.model=model;
+            this.hdd=hdd;
+            this.ram=ram;
+            System.out.println("Информация: " + "Цена: " + price + "Модель: " + model+ "RAM: " + ram +"HDD: " + hdd);
+        }
+
+        public void infoComp () {
+            System.out.println("Информация по компьютеру " + this.model + " :Цена " + price + "$");
+        }
+    }
+}
+
+2) HDD
+package Komp;
+
+public class HDD {
+            String nameHDD;
+            double memory;
+            String type;
+
+            public HDD() {}
+
+    public HDD(String nameHDD, double memory, String type) {
+                this.nameHDD=nameHDD;
+                this.memory=memory;
+                this.type=type;
+    }
+
+    public  void HddInfo() {
+        System.out.println("Информация: " + nameHDD+ " " + memory + "GB" + " " + type);
+
+    }
+}
+
+3) RAM
+package Komp;
+
+public class RAM {
+        private String nameRam;
+        private double memory;
+
+    public  RAM(String nameRam, double memory) {
+        this.memory=memory;
+        this.nameRam=nameRam;
+    }
+
+        public  RAM() {
+        }
+
+
+        public void RamInfo () {
+            System.out.println("Полная информация о RAM: " + nameRam + " " +  memory);
+        }
+    }
+
+
+4) OLL
+package Komp;
+
+public class Oll {
+    public static void main(String[] args) {
+        Main.Comp comp1 = new Main.Comp(500, "HP");
+        RAM ram1=new RAM("Kingston", 5);
+        HDD hdd1=new HDD("uuu", 5, "yyyy");
+        Main.Comp comp2=new Main.Comp(400, "Lenovo");
+        RAM ram2=new RAM("Kingston", 7);
+        HDD hdd2=new HDD("eee", 8, "www");
+        comp1.infoComp();
+        comp2.infoComp();
+
+        ram1.RamInfo();
+        ram2.RamInfo();
+    }
+}
