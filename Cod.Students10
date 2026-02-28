@@ -1,0 +1,20 @@
+package Students;
+
+import  java.util.Random;
+public class Cicle {
+    public static void main(String[] args) {
+        Random r = new Random();
+        String[] names = new String[]{"Петр", "Иван", "Катя", "Ира", "Игорь", "Даша", "Рита", "Дима", "Марина", "Леша"};
+       Methods.Students group=new Methods.Students();
+        Methods.Students[] students = new Methods.Students[10];
+        for (int i = 0; i < students.length; i++) {
+            String name = names[r.nextInt(names.length)];
+            String groups=new String("ПИ-102");
+            int ball = r.nextInt(11);
+            students[i] = new Methods.Students(name, groups, ball);
+        }
+            for (Methods.Students s: students) {
+                s.StudentsInfo();
+            }
+        }
+    }
