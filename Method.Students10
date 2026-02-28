@@ -1,0 +1,37 @@
+package Students;
+
+import javax.swing.*;
+
+public class Methods {
+
+
+
+
+    public static class Students {
+        String name;
+        String group;
+        double ball;
+
+
+        public Students(String name, String group, double ball) {
+            this.ball = ball;
+            this.group = group;
+            this.name = name;
+
+            group = "ПИ-101";
+        }
+
+        public void StudentsInfo() {
+
+            System.out.println("Студент: " + name + ", " + "группа: " + group + " " + "Оценка за диплом: " + ball);
+        }
+
+        public Students() {
+
+        }
+
+
+
+}
+
+}
